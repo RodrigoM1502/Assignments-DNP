@@ -43,19 +43,18 @@ public class CommentInMemoryRepository : ICommentRepository
         comments.Remove(commentToRemove);
         return Task.CompletedTask;
     }
-/*
-    public Task<Post> GetSingleAsync(int id)
+
+    public Task<Comment> GetSingleAsync(int id)
     {
-        Post? postToGet = posts.SingleOrDefault(p => p.post_id == id);
-        if (postToGet is null)
+        Comment? commentToGet = comments.SingleOrDefault(c => c.comment_id == id);
+        if (commentToGet is null)
         {
             throw new InvalidOperationException(
-                $"Post with ID '{id}' not found");
+                $"Comment with ID '{id}' not found");
         }
-
-        return Task.FromResult(post);
+        return Task.FromResult(commentToGet);
     }
-*/
+
     public IQueryable<Comment> GetManyAsync()
     {
         return comments.AsQueryable();

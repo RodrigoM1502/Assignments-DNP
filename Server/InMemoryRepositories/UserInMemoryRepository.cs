@@ -43,19 +43,18 @@ public class UserInMemoryRepository :IUserRepository
         users.Remove(userToRemove);
         return Task.CompletedTask;
     }
-/*
-    public Task<Post> GetSingleAsync(int id)
+    
+    public Task<User> GetSingleAsync(int id)
     {
-        Post? postToGet = posts.SingleOrDefault(p => p.post_id == id);
-        if (postToGet is null)
+        User? userToGet = users.SingleOrDefault(u => u.user_id == id);
+        if (userToGet is null)
         {
             throw new InvalidOperationException(
-                $"Post with ID '{id}' not found");
+                $"User with ID '{id}' not found");
         }
-
-        return Task.FromResult(post);
+        return Task.FromResult(userToGet);
     }
-*/
+    
     public IQueryable<User> GetManyAsync()
     {
         return users.AsQueryable();

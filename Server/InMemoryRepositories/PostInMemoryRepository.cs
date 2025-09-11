@@ -43,7 +43,7 @@ public class PostInMemoryRepository : IPostRepository
         posts.Remove(postToRemove);
         return Task.CompletedTask;
     }
-/*
+
     public Task<Post> GetSingleAsync(int id)
     {
         Post? postToGet = posts.SingleOrDefault(p => p.post_id == id);
@@ -52,10 +52,9 @@ public class PostInMemoryRepository : IPostRepository
             throw new InvalidOperationException(
                 $"Post with ID '{id}' not found");
         }
-        
-        return Task.FromResult(post);
+        return Task.FromResult(postToGet);
     }
-*/
+
     public IQueryable<Post> GetManyAsync()
     {
         return posts.AsQueryable();
